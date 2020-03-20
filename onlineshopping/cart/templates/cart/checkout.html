@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-sm">
           <h1>Enter Address and other details</h1>
-          <form>
+          <form action="{% url 'clearcart' %}" method="GET">
             <div class="form-group">
               <label for="exampleInputEmail1" aria-required="true"> Address</label>
               <input type="name" class="form-control">
@@ -26,7 +26,7 @@
               <input type="name" class="form-control">
               
             </div>
-            <div class="form-check">
+            <!-- <div class="form-check">
               <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
               <label class="form-check-label" for="exampleRadios1">
                 Cash
@@ -37,7 +37,7 @@
               <label class="form-check-label" for="exampleRadios2">
                Visa
               </label>
-            </div>
+            </div> -->
             <label for="inputCity">City</label>
             <input type="text" class="form-control" id="inputCity">
             <label for="inputState">State</label>
@@ -65,102 +65,22 @@
             <button type="submit" class="btn btn-primary">Submit</button></form></div>
 
         </div>
-        <div class="col-sm">
-          <h1> check your items in cart</h1>
+        <div class="col-sm"><h1> check your items in cart</h1>
+         <ul>
+          {% for cart in product %}
           <li class="list-group-item d-flex justify-content-between align-items-center">
-            Dairymilk 
-            <span class="badge badge-primary badge-pill">14</span>
+            {{cart.item}}
+            <span class="badge badge-primary badge-pill">{{cart.quantity}}</span>
           </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Kitkat
-            <span class="badge badge-primary badge-pill">2</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-           Dairymilk Bubbly
-            <span class="badge badge-primary badge-pill">1</span>
-          </li>
+          {% endfor %}
+        
         </ul>
+         </ul>
         </div>
 
       </div>
     </div>
-    <!-- <div class="container">
-      <div class="row">
-        <div class="col-sm">
-          <h1>Enter Address and other details</h1>
-          <form>
-            <div class="form-group">
-              <label for="exampleInputEmail1" aria-required="true"> Address</label>
-              <input type="name" class="form-control">
-              
-            </div>
-            <div class="form-group">
-              <label for="exampleInputEmail1"> Address2</label><small>(optional)</small>
-              <input type="name" class="form-control">
-              
-            </div>
-            
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-              <label class="form-check-label" for="exampleRadios1">
-                Cash
-              </label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-              <label class="form-check-label" for="exampleRadios2">
-               Visa
-              </label>
-            </div>
-            <div class="form-row">
-              <div class="form-group col-md-6">
-                <label for="inputCity">City</label>
-                <input type="text" class="form-control" id="inputCity">
-              </div>
-              <div class="form-group col-md-4">
-                <label for="inputState">State</label>
-                <select id="inputState" class="form-control">
-                  <option selected> </option>
-                  <option>...</option>
-                </select>
-              </div>
-              <div class="form-group col-md-2">
-                <label for="inputZip">Zip</label>
-                <input type="text" class="form-control" id="inputZip">
-              
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-              <label class="form-check-label" for="defaultCheck1">
-                Shipping address is same as mentioned above
-              </label></div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-                <label class="form-check-label" for="defaultCheck1">
-                 Save the information for the next time
-                </label><br>
-         
-            <button type="submit" class="btn btn-primary">Submit</button></form>
-        </div>
-        <div class="col-sm">
-          <h1> check your items in cart</h1>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Dairymilk 
-            <span class="badge badge-primary badge-pill">14</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            Kitkat
-            <span class="badge badge-primary badge-pill">2</span>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-           Dairymilk Bubbly
-            <span class="badge badge-primary badge-pill">1</span>
-          </li>
-        </ul><br><br></div>
     
-            </div>
-          </div>
- -->
 
           
              

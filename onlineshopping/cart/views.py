@@ -90,4 +90,13 @@ def CartView(request):
 
 
 def checkout(request):
-    return render(request , 'cart/checkout.html')
+    product = Cart.objects.all()
+    parameter = {'product': product}
+    return render(request, 'cart/checkout.html', parameter)
+
+
+def clearCart(request):
+    if request.method == 'GET':
+        cart_qs = Cart.objects.filter(user=request.user)
+        cart_qs.delete()
+        return redirect('products')
